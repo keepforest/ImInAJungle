@@ -1,6 +1,8 @@
-﻿<html>
-
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
 <head>
+<title>ImInAJungle - ฉันกำลังอยู่ในเขตป่าสงวนหรือป่าว :?</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
 
@@ -61,17 +63,19 @@ function trapEventInfo(e) {
 
 function displayLocationInfo(loc) {
 
-                document.getElementById("lat").value = loc.latitude;
-                document.getElementById("lng").value = loc.longitude;
+        document.getElementById("lat").value = loc.latitude;
+        document.getElementById("lng").value = loc.longitude;
 
 }
 
 
-function  isValidLocation(lat,lng,showAlert) {
+function correctLocationValue(lat,lng,showAlert) {
 
 try {
 
 	var loc = new Microsoft.Maps.Location(lat,lng);
+	displayLocationInfo(loc);
+
 	return true;
 
 }
@@ -98,12 +102,13 @@ catch(err) {
 
 <form method='post' action="http://protection.forest.go.th/gis/common.ajax.php" enctype='application/x-www-form-urlencoded' target='location_info'>
 
-<b>หรือใส่ค่าพิกัดของตำแหน่งที่ต้องการตรวจสอบในช่องด้านล่าง</b><br>
+<b>หรือใส่ค่าพิกัดของตำแหน่งที่ต้องการตรวจสอบในช่องด้านล่างนี้</b><br>
 latitude = <input type='text' name='lat' id='lat' size=20>, 
 longitude = <input type='text' name='lng' id='lng' size=20>
 <input type='hidden' name='mode' id='mode' value='get_forest_info' readonly='true'><br>
 <br>
-<input type='submit' name='submit' id='submit' value='ตรวจสอบ' onclick='return isValidLocation(lat.value, lng.value, true)'><input type='text' name='sensor' id='sensor' size=3>
+<input type='submit' name='submit' id='submit' value='ตรวจสอบ' onclick='return correctLocationValue(lat.value, lng.value, true)'>
+<input type='hidden' name='sensor' id='sensor' size=3>
 
 
 </form>
@@ -111,16 +116,3 @@ longitude = <input type='text' name='lng' id='lng' size=20>
 </body>
 
 </html>
-
-<!--
-
-            var z = "mode=get_forest_info"
-            + "&lat="+tn.gmap.m.right_click.lat
-            + "&lng="+tn.gmap.m.right_click.lng
-
-,z,fn)
-        }
-        tn.gmap.e.on_right_click(get_forest_info)
-    }
-
--->
