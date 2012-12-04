@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 
 <head>
 
@@ -28,14 +28,16 @@ function GetMap() {
 
 			//set start map as detected location, and display location info
 			displayLocationInfo(object.center); 
+	                document.getElementById("sensor").value = '_';
 
-	}
+		}
 	},
 	{ errorCallback: 
 		function(object) { 
 
 			//set start map as Thailand
 			map.setView({zoom: 5, center: new Microsoft.Maps.Location(13.77351,100.56875) });
+	                document.getElementById("sensor").value = '.';
 		
 		} 	
 	}
@@ -70,18 +72,20 @@ function displayLocationInfo(loc) {
 
 <body onload="GetMap();">
 
-<a href='ImInAJungle_WebFull'>go</a>
+<!-- a href='ImInAJungle_WebFull'>go</a -->
 
 <div id='myMap' style="position:relative; width:700px; height:500px;"></div><br>
-<b>Click the map to display the coordinate values at that point.</b><br>
+<b>คลิกแผนที่ ณ ตำแหน่งที่ต้องการตรวจสอบว่าอยู่ในเขตป่าสงวนหรือไม่</b><br>
 
-<form method='post' action="http://protection.forest.go.th/gis/common.ajax.php" enctype='application/x-www-form-urlencoded'>
+<form method='post' action="http://protection.forest.go.th/gis/common.ajax.php" enctype='application/x-www-form-urlencoded' target='location_info'>
 
-lat = <input type='text' name='lat' id='lat' width=20 readonly='true'>, 
-lng = <input type='text' name='lng' id='lng' width=20 readonly='true'>, 
-mode = <input type='text' name='mode' id='mode' value='get_forest_info' readonly='true'>
+<b>ใส่ค่าตำแหน่งที่ต้องการตรวจสอบว่าอยู่ในเขตป่าสงวนหรือไม่</b><br>
+lat = <input type='text' name='lat' id='lat' width=20>, 
+lng = <input type='text' name='lng' id='lng' width=20>, 
+mode = <input type='hidden' name='mode' id='mode' value='get_forest_info' readonly='true'><br>
+<br>
+<input type='submit' name='submit' id='submit' value='ตรวจสอบ'><input type='text' name='sensor' id='sensor' width=1>, 
 
-<input type='submit' name='submit' id='submit'>
 
 </form>
 
