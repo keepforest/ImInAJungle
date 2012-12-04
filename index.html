@@ -1,31 +1,83 @@
+<body onload="GetMap();">
+
 <a href='ImInAJungle_WebFull'>go</a>
 
+<script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
 
+<script type="text/javascript">
+
+var map = null;         
+
+function GetMap() {
+
+        // Initialize the map
+        map = new Microsoft.Maps.Map(document.getElementById("myMap"), {credentials:"AjHyO0DafhJA9zV9yn3LR0pGvBWIhzfY23PRa8O_eadGopb5Tb4L0fnUPF04B1BX"}); //keepforest.azurewebsites.net
+
+        //Add handler for the map click event.
+	Microsoft.Maps.Events.addHandler(map, 'click', trapEventInfo);
+
+	map.entities.clear(); 
+	var geoLocationProvider = new Microsoft.Maps.GeoLocationProvider(map);  
+
+	geoLocationProvider.getCurrentPosition(
+	{ successCallback: 
+		function(object) { displayLocationInfo(object.center); }
+	}/*,
+	{ errorCallback: 
+		function(object) { alert('error code '  + object.errorCode); } 	
+	}*/
+	); 
+
+}
+
+function trapEventInfo(e) {
+
+        if (e.targetType == "map") {
+
+                var point = new Microsoft.Maps.Point(e.getX(), e.getY());
+                var loc = e.target.tryPixelToLocation(point);
+
+		displayLocationInfo(loc);
+
+        }
+
+}
+
+function displayLocationInfo(loc) {
+
+                document.getElementById("lat").value = loc.latitude;
+                document.getElementById("lng").value = loc.longitude;
+
+        }
+
+}
+
+
+</script>
+
+<div id='myMap' style="position:relative; width:400px; height:400px;"></div><br>
+<b>Click the map to display the coordinate values at that point.</b><br>
 
 <form method='post' action="http://protection.forest.go.th/gis/common.ajax.php" enctype='application/x-www-form-urlencoded'>
 
-lat = <input type='text' name='lat'>, 
-lng = <input type='text' name='lng'>, 
-mode = <input type='text' name='mode' value='get_forest_info'>
+lat = <input type='text' name='lat' width=20>, 
+lng = <input type='text' name='lng' width=20>, 
+mode = <input type='text' name='mode' value='get_forest_info' readonly='true'>
 
 <input type='submit'>
 
 </form>
+</body>
 
 <!--
+
             var z = "mode=get_forest_info"
             + "&lat="+tn.gmap.m.right_click.lat
             + "&lng="+tn.gmap.m.right_click.lng
-
-
 
 ,z,fn)
         }
         tn.gmap.e.on_right_click(get_forest_info)
     }
-
-
-
-function J(FileName,Data,$Fn,$ShowSendData,$ShowResponseData){
 
 -->
