@@ -79,12 +79,12 @@ function displayLocationInfo(loc) {
 
 <form method='post' action="http://protection.forest.go.th/gis/common.ajax.php" enctype='application/x-www-form-urlencoded' target='location_info'>
 
-<b>ใส่ค่าตำแหน่งที่ต้องการตรวจสอบว่าอยู่ในเขตป่าสงวนหรือไม่</b><br>
-lat = <input type='text' name='lat' id='lat' width=20>, 
-lng = <input type='text' name='lng' id='lng' width=20>, 
-mode = <input type='hidden' name='mode' id='mode' value='get_forest_info' readonly='true'><br>
+<b>หรือใส่ค่าของตำแหน่งที่ต้องการตรวจสอบในช่องด้านล่าง</b><br>
+latitude = <input type='text' name='lat' id='lat' size=20>, 
+longitude = <input type='text' name='lng' id='lng' size=20>
+<input type='hidden' name='mode' id='mode' value='get_forest_info' readonly='true'><br>
 <br>
-<input type='submit' name='submit' id='submit' value='ตรวจสอบ'><input type='text' name='sensor' id='sensor' width=1>, 
+<input type='submit' name='submit' id='submit' value='ตรวจสอบ'><input type='text' name='sensor' id='sensor' size=1>, 
 
 
 </form>
