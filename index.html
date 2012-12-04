@@ -76,7 +76,10 @@ try {
 	var loc = new Microsoft.Maps.Location(lat,lng);
 	displayLocationInfo(loc);
 
-	return true;
+	if (isNumber(loc.latitude) && isNumber(loc.longitude))
+		return true;
+	else
+		throw "invalid value for Location";
 
 }
 catch(err) {
@@ -86,6 +89,13 @@ catch(err) {
 	return false;
 
 }
+
+}
+
+
+function isNumber(n) {
+	
+	return !isNaN(parseFloat(n)) && isFinite(n);
 
 }
 
