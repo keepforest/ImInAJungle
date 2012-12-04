@@ -1,6 +1,6 @@
-<body onload="GetMap();">
+<html>
 
-<a href='ImInAJungle_WebFull'>go</a>
+<head>
 
 <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
 
@@ -55,6 +55,12 @@ function displayLocationInfo(loc) {
 
 </script>
 
+</head>
+
+<body onload="GetMap();">
+
+<a href='ImInAJungle_WebFull'>go</a>
+
 <div id='myMap' style="position:relative; width:400px; height:400px;"></div><br>
 <b>Click the map to display the coordinate values at that point.</b><br>
 
@@ -67,7 +73,10 @@ mode = <input type='text' name='mode' value='get_forest_info' readonly='true'>
 <input type='submit'>
 
 </form>
+
 </body>
+
+</html>
 
 <!--
 
