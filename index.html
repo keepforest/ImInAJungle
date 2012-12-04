@@ -48,8 +48,6 @@ function displayLocationInfo(loc) {
                 document.getElementById("lat").value = loc.latitude;
                 document.getElementById("lng").value = loc.longitude;
 
-        }
-
 }
 
 
@@ -66,8 +64,8 @@ function displayLocationInfo(loc) {
 
 <form method='post' action="http://protection.forest.go.th/gis/common.ajax.php" enctype='application/x-www-form-urlencoded'>
 
-lat = <input type='text' name='lat' width=20>, 
-lng = <input type='text' name='lng' width=20>, 
+lat = <input type='text' name='lat' width=20 readonly='true'>, 
+lng = <input type='text' name='lng' width=20 readonly='true'>, 
 mode = <input type='text' name='mode' value='get_forest_info' readonly='true'>
 
 <input type='submit'>
