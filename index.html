@@ -11,7 +11,10 @@ var map = null;
 function GetMap() {
 
         // Initialize the map
-        map = new Microsoft.Maps.Map(document.getElementById("myMap"), {credentials:"AjHyO0DafhJA9zV9yn3LR0pGvBWIhzfY23PRa8O_eadGopb5Tb4L0fnUPF04B1BX"}); //keepforest.azurewebsites.net
+        map = new Microsoft.Maps.Map(
+		document.getElementById("myMap"), 
+		{credentials:"AjHyO0DafhJA9zV9yn3LR0pGvBWIhzfY23PRa8O_eadGopb5Tb4L0fnUPF04B1BX"}
+	); //keepforest.azurewebsites.net
 
         //Add handler for the map click event.
 	Microsoft.Maps.Events.addHandler(map, 'click', trapEventInfo);
@@ -21,11 +24,21 @@ function GetMap() {
 
 	geoLocationProvider.getCurrentPosition(
 	{ successCallback: 
-		function(object) { displayLocationInfo(object.center); }
-	}/*,
+		function(object) { 
+
+			//set start map as detected location, and display location info
+			displayLocationInfo(object.center); 
+
+	}
+	},
 	{ errorCallback: 
-		function(object) { alert('error code '  + object.errorCode); } 	
-	}*/
+		function(object) { 
+
+			//set start map as Thailand
+			map.setView({zoom: 5, center: new Microsoft.Maps.Location(13.77351,100.56875) });
+		
+		} 	
+	}
 	); 
 
 }
@@ -59,7 +72,7 @@ function displayLocationInfo(loc) {
 
 <a href='ImInAJungle_WebFull'>go</a>
 
-<div id='myMap' style="position:relative; width:400px; height:400px;"></div><br>
+<div id='myMap' style="position:relative; width:700px; height:500px;"></div><br>
 <b>Click the map to display the coordinate values at that point.</b><br>
 
 <form method='post' action="http://protection.forest.go.th/gis/common.ajax.php" enctype='application/x-www-form-urlencoded'>
