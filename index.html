@@ -19,6 +19,9 @@ function GetMap() {
         //Add handler for the map click event.
 	Microsoft.Maps.Events.addHandler(map, 'click', trapEventInfo);
 
+	//set start map as Thailand
+	map.setView({zoom: 5, center: new Microsoft.Maps.Location(13.77351,100.56875) });
+
 	map.entities.clear(); 
 	var geoLocationProvider = new Microsoft.Maps.GeoLocationProvider(map);  
 
@@ -35,8 +38,6 @@ function GetMap() {
 	{ errorCallback: 
 		function(object) { 
 
-			//set start map as Thailand
-			map.setView({zoom: 5, center: new Microsoft.Maps.Location(13.77351,100.56875) });
 	                document.getElementById("sensor").value = '.';
 		
 		} 	
@@ -66,6 +67,25 @@ function displayLocationInfo(loc) {
 }
 
 
+fuction  isValidLocation(lat,lng,showAlert) {
+
+try {
+
+	var loc = new Microsoft.Maps.Location(lat,lng);
+	return true;
+
+}
+catch(err) {
+
+	if (showAlert)
+		alert("ข้อมูลพิกัดไม่ถูกต้อง");
+	
+	return false;
+
+}
+
+}
+
 </script>
 
 </head>
@@ -79,12 +99,12 @@ function displayLocationInfo(loc) {
 
 <form method='post' action="http://protection.forest.go.th/gis/common.ajax.php" enctype='application/x-www-form-urlencoded' target='location_info'>
 
-<b>หรือใส่ค่าของตำแหน่งที่ต้องการตรวจสอบในช่องด้านล่าง</b><br>
+<b>หรือใส่ค่าพิกัดของตำแหน่งที่ต้องการตรวจสอบในช่องด้านล่าง</b><br>
 latitude = <input type='text' name='lat' id='lat' size=20>, 
 longitude = <input type='text' name='lng' id='lng' size=20>
 <input type='hidden' name='mode' id='mode' value='get_forest_info' readonly='true'><br>
 <br>
-<input type='submit' name='submit' id='submit' value='ตรวจสอบ'><input type='text' name='sensor' id='sensor' size=1>, 
+<input type='submit' name='submit' id='submit' value='ตรวจสอบ' onclick='return isValidLocation(lat.value, lng.value, true)'><input type='text' name='sensor' id='sensor' size=3>
 
 
 </form>
