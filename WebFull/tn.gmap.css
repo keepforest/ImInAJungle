@@ -1,0 +1,9 @@
+.TN_GMAP_DIV_TOOLTIP {
+	padding: 1px 3px; border: 1px solid rgb(204, 204, 204); color: rgb(85, 85, 85); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; background-color: rgb(238, 238, 238);
+}
+.TN_GMAP_DIV_MENU {
+	background: rgb(255, 225, 142); padding: 3px 12px 5px 10px; border: 1px solid rgb(153, 153, 153); color: rgb(0, 0, 0); line-height: 20px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: normal; visibility: hidden;
+}
+.TN_GMAP_DIV_MENU a {
+	color: rgb(0, 0, 0); text-decoration: none;
+}

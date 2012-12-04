@@ -1,0 +1,57 @@
+html {
+	-ms-overflow-x: hidden; -ms-overflow-y: auto;
+}
+body {
+	margin: 0px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;
+}
+input[type=file] {
+	vertical-align: middle;
+}
+form {
+	margin: 0px;
+}
+#div_map {
+	border: 1px solid rgb(187, 187, 187); left: 0px; top: 90px; right: 370px; bottom: 22px; position: absolute;
+}
+#div_cursor_point {
+	left: 5px; bottom: 0px; position: absolute;
+}
+#div_right {
+	top: 90px; width: 367px; right: 0px; bottom: 2px; position: absolute; -ms-overflow-x: hidden; -ms-overflow-y: auto;
+}
+fieldset {
+	margin: 2px 0px 5px; color: rgb(0, 0, 0); font-size: 11px; font-weight: normal;
+}
+fieldset legend {
+	color: rgb(0, 51, 204);
+}
+fieldset input[type=checkbox] {
+	margin-right: 5px; vertical-align: middle;
+}
+#fid_layer {
+	height: 145px;
+}
+#fid_raster {
+	height: 165px;
+}
+#fid_raster input[type=radio] {
+	margin: 0px 5px 0px 0px;
+}
+#fid_raster span {
+	font-size: 10px;
+}
+#fid_raster select {
+	font-size: 10px; vertical-align: middle;
+}
+.marker_head_topic {
+	line-height: 18px; font-size: 12px; font-weight: bold; margin-top: 5px; margin-bottom: 10px;
+}
+.marker_head_data {
+	width: 240px; font-size: 12px; font-weight: normal;
+}
+.marker_topic {
+	line-height: 18px; font-size: 12px; font-weight: bold; margin-top: 5px; margin-bottom: 5px;
+}
+.marker_data {
+	font-size: 12px; font-weight: normal;
+}

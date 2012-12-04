@@ -1,0 +1,120 @@
+.CALENDAR_DIV {
+	color: rgb(102, 119, 221); line-height: 15px; font-family: Verdana, Arial, Helvetica, sans-serif; visibility: hidden; position: absolute; background-color: white;
+}
+.CALENDAR_TXT {
+	text-align: center; font-size: 12px;
+}
+.CALENDAR_IMG {
+	margin-left: 5px;
+}
+.CALENDAR_IMG_PREV {
+	margin-right: 10px;
+}
+.CALENDAR_IMG_NEXT {
+	margin-left: 7px;
+}
+.TESTcpYearNavigation {
+	text-align: center; color: rgb(255, 255, 255); font-weight: bold; text-decoration: none; background-color: rgb(102, 119, 221);
+}
+.TESTcpMonthNavigation {
+	text-align: center; color: rgb(255, 255, 255); font-weight: bold; text-decoration: none; background-color: rgb(102, 119, 221);
+}
+.TESTcpYearNavigation select {
+	color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: normal; background-color: rgb(255, 255, 255);
+}
+.TESTcpMonthNavigation select {
+	color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: normal; background-color: rgb(255, 255, 255);
+}
+.TESTcpDayColumnHeader {
+	font-family: arial; font-size: 8pt;
+}
+.TESTcpYearNavigation {
+	font-family: arial; font-size: 8pt;
+}
+.TESTcpMonthNavigation {
+	font-family: arial; font-size: 8pt;
+}
+.TESTcpCurrentMonthDate {
+	font-family: arial; font-size: 8pt;
+}
+.TESTcpCurrentMonthDateDisabled {
+	font-family: arial; font-size: 8pt;
+}
+.TESTcpOtherMonthDate {
+	font-family: arial; font-size: 8pt;
+}
+.TESTcpOtherMonthDateDisabled {
+	font-family: arial; font-size: 8pt;
+}
+.TESTcpCurrentDate {
+	font-family: arial; font-size: 8pt;
+}
+.TESTcpCurrentDateDisabled {
+	font-family: arial; font-size: 8pt;
+}
+.TESTcpTodayText {
+	font-family: arial; font-size: 8pt;
+}
+.TESTcpTodayTextDisabled {
+	font-family: arial; font-size: 8pt;
+}
+.TESTcpText {
+	font-family: arial; font-size: 8pt;
+}
+td.TESTcpDayColumnHeader {
+	border-width: 0px 0px 1px; border-style: solid; border-color: rgb(102, 119, 221); text-align: right;
+}
+.TESTcpCurrentMonthDate {
+	text-align: right; text-decoration: none;
+}
+.TESTcpOtherMonthDate {
+	text-align: right; text-decoration: none;
+}
+.TESTcpCurrentDate {
+	text-align: right; text-decoration: none;
+}
+.TESTcpCurrentMonthDateDisabled {
+	text-align: right; color: rgb(208, 208, 208); text-decoration: line-through;
+}
+.TESTcpOtherMonthDateDisabled {
+	text-align: right; color: rgb(208, 208, 208); text-decoration: line-through;
+}
+.TESTcpCurrentDateDisabled {
+	text-align: right; color: rgb(208, 208, 208); text-decoration: line-through;
+}
+.TESTcpCurrentMonthDate {
+	color: rgb(102, 119, 221); font-weight: bold;
+}
+.TESTcpCurrentDate {
+	color: rgb(255, 255, 255); font-weight: bold;
+}
+.TESTcpOtherMonthDate {
+	color: rgb(128, 128, 128);
+}
+td.TESTcpCurrentDate {
+	color: rgb(255, 255, 255); background-color: rgb(102, 119, 221);
+}
+td.TESTcpCurrentDateDisabled {
+	border: thin rgb(255, 170, 170);
+}
+td.TESTcpTodayText {
+	border-width: 1px 0px 0px; border-style: solid; border-color: rgb(102, 119, 221);
+}
+td.TESTcpTodayTextDisabled {
+	border-width: 1px 0px 0px; border-style: solid; border-color: rgb(102, 119, 221);
+}
+a.TESTcpTodayText {
+	height: 20px;
+}
+span.TESTcpTodayTextDisabled {
+	height: 20px;
+}
+a.TESTcpTodayText {
+	color: rgb(102, 119, 221); font-weight: bold;
+}
+span.TESTcpTodayTextDisabled {
+	color: rgb(208, 208, 208);
+}
+.TESTcpBorder {
+	border: thin solid rgb(102, 119, 221);
+}

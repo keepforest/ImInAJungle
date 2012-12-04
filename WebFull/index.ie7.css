@@ -1,0 +1,18 @@
+@charset "utf-8";
+/*******************************
+css can overrule some attribute.
+*******************************/
+
+
+/***************
+TABLE :: DATA
+***************/
+#div_tb{
+	width:350px;
+}
+#tb_head{
+	width:350px;
+}
+#tb{
+	width:334px;
+}
