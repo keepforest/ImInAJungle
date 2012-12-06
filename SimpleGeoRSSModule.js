@@ -57,7 +57,22 @@ function GeoRSSModule(map) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", MyFeed, false);
         xmlhttp.send();
-        var xmlDoc = xmlhttp.responseText;
+        var retText = xmlhttp.responseText;
+
+
+        var xmlDoc; 
+
+if (window.DOMParser)
+   {
+   parser=new DOMParser();
+   xmlDoc=parser.parseFromString(retText,"text/xml");
+   }
+ else // Internet Explorer
+   {
+   xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+   xmlDoc.async=false;
+   xmlDoc.loadXML(retText);
+   }
 
 	var featureTagName = "entry";
 
