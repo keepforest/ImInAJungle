@@ -73,6 +73,7 @@ else
    {
    parser = new DOMParser();
 var len = retText.length;
+var sst = retText.substring(retText.length-10);
 xmlContent = parser.parseFromString(retText,"text/xml");
    }
 
