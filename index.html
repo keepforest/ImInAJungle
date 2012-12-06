@@ -5,9 +5,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
-<script type="text/javascript" src="jQuery-1.4.4.min.js"></script>
-<script type="text/javascript" src="geoTools.js"></script>
-<script type="text/javascript" src="GeoRSSLayer.js"></script>
 
 <script type="text/javascript">
 
@@ -25,7 +22,7 @@ var polygonOptions = {
 
 
 var mapLayers = {
-	ThaiForestBoundary : {mapEntities : new Microsoft.Maps.EntityCollection(156, 0, 0, 255), source: '/thai_forest_boundary.txt'}
+	ThaiForestBoundary : {mapEntities : new Microsoft.Maps.EntityCollection(), sourceFile: 'thai_forest_boundary.txt'}
 };
 
 function GetMap() {
@@ -33,8 +30,8 @@ function GetMap() {
         // Initialize the map
         map = new Microsoft.Maps.Map(
 		document.getElementById("mainMapControl"), 
-		{credentials:"AjHyO0DafhJA9zV9yn3LR0pGvBWIhzfY23PRa8O_eadGopb5Tb4L0fnUPF04B1BX"}
-	); //keepforest.azurewebsites.net
+		{credentials:"AjHyO0DafhJA9zV9yn3LR0pGvBWIhzfY23PRa8O_eadGopb5Tb4L0fnUPF04B1BX"} //keepforest.azurewebsites.net
+	); 
 
         //Add handler for the map click event.
 	Microsoft.Maps.Events.addHandler(map, 'click', trapEventInfo);
@@ -43,8 +40,10 @@ function GetMap() {
 	map.setView({zoom: 5, center: new Microsoft.Maps.Location(13.77351,100.56875) });
 
 	map.entities.clear(); 
-	loadGeoRSS(mapLayers.ThaiForestBoundary.mapEntities, map, mapLayers.ThaiForestBoundary.source, polylineOptions, polygonOptions, false);
-	map.entities.push(mapLayers.ThaiForestBoundary.mapEntities);
+	LoadMapModules();
+
+	//loadGeoRSS(mapLayers.ThaiForestBoundary.mapEntities, map, mapLayers.ThaiForestBoundary.source, polylineOptions, polygonOptions, false);
+	//map.entities.push(mapLayers.ThaiForestBoundary.mapEntities);
 
 	var geoLocationProvider = new Microsoft.Maps.GeoLocationProvider(map);  
 
@@ -81,6 +80,23 @@ function trapEventInfo(e) {
         }
 
 }
+
+
+          function LoadMapModules() {
+
+              // Register and load a SimpleGeoRSSModule module
+              Microsoft.Maps.registerModule("SimpleGeoRSSModule", "SimpleGeoRSSModule.js");
+              Microsoft.Maps.loadModule("SimpleGeoRSSModule", { callback: SimpleGeoRSSModuleLoaded });
+
+          }
+
+          function SimpleGeoRSSModuleLoaded() {
+
+              // Use the function provided by the newly loaded module
+              var module = new GeoRSSModule(map);
+              module.ImportGeoRSS(mapLayers.ThaiForestBoundary.sourceFile);
+
+          }
 
 
 function loadGeoRSS(mapEntities, mapControl, contentUrl, polylineOptions, polygonOptions, setViewBound) {
