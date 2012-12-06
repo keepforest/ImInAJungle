@@ -57,7 +57,9 @@ function GeoRSSModule(map) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", MyFeed, false);
         xmlhttp.send();
-        var retText = xmlhttp.responseText;
+        var xmlDoc = xmlhttp.responseXML;
+
+/*
 var len = retText.length;
 var sst = retText.substring(retText.length-10);
 
@@ -76,6 +78,7 @@ else
    oparser = new DOMParser();
 xmlContent = oparser.parseFromString(retText,"text/xml");
    }
+*/
 
 	var featureTagName = "entry";
 
