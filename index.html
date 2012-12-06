@@ -43,7 +43,7 @@ function GetMap() {
 	map.setView({zoom: 5, center: new Microsoft.Maps.Location(13.77351,100.56875) });
 
 	map.entities.clear(); 
-	loadGeoRSS(mapLayers.ThaiForestBoundary, map, "thai_forest_boundary.atom", polylineOptions, polygonOptions, false)
+	loadGeoRSS(mapLayers.ThaiForestBoundary, map, "thai_forest_boundary.atom", polylineOptions, polygonOptions, false);
 
 
 	var geoLocationProvider = new Microsoft.Maps.GeoLocationProvider(map);  
