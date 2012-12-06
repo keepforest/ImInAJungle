@@ -57,7 +57,7 @@ function GeoRSSModule(map) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", MyFeed, false);
         xmlhttp.send();
-        var xmlDoc = xmlhttp.responseXML.normalize();
+        var xmlDoc = xmlhttp.responseXML;
 
 /*
 var len = retText.length;
