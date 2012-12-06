@@ -58,6 +58,8 @@ function GeoRSSModule(map) {
         xmlhttp.open("GET", MyFeed, false);
         xmlhttp.send();
         var retText = xmlhttp.responseText;
+var len = retText.length;
+var sst = retText.substring(retText.length-10);
 
 
         var xmlContent = null; 
@@ -71,10 +73,8 @@ xmlContent.loadXML(retText);
    }
 else
    {
-   parser = new DOMParser();
-var len = retText.length;
-var sst = retText.substring(retText.length-10);
-xmlContent = parser.parseFromString(retText,"text/xml");
+   oparser = new DOMParser();
+xmlContent = oparser.parseFromString(retText,"text/xml");
    }
 
 	var featureTagName = "entry";
