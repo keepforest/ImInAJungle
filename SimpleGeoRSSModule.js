@@ -60,17 +60,17 @@ function GeoRSSModule(map) {
         var retText = xmlhttp.responseText;
 
 
-        var xmlDoc; 
+        var xmlDoc = null; 
 
 if (window.DOMParser)
    {
-   parser=new DOMParser();
-   xmlDoc=parser.parseFromString(retText,"text/xml");
+   parser = new DOMParser();
+   xmlDoc = parser.parseFromString(retText,"text/xml");
    }
  else // Internet Explorer
    {
-   xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
-   xmlDoc.async=false;
+   xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+   xmlDoc.async = false;
    xmlDoc.loadXML(retText);
    }
 
