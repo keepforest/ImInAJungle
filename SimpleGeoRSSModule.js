@@ -27,9 +27,10 @@
 ********************************************************************/
 
 function GeoRSSModule(map) {
-    var myFillColor = new Microsoft.Maps.Color(100, 255, 165, 0);
-    var myStrokeColor = new Microsoft.Maps.Color(200, 255, 165, 0);
-    var myStrokeThickness = 5;
+
+    var myFillColor = Microsoft.Maps.Color.fromHex('99ff6600');
+    var myStrokeColor = Microsoft.Maps.Color.fromHex('eeff6600');
+    var myStrokeThickness = 3;
 
     var myPolygonOptions = { fillColor: myFillColor,
         strokeColor: myStrokeColor,
@@ -58,11 +59,13 @@ function GeoRSSModule(map) {
         xmlhttp.send();
         var xmlDoc = xmlhttp.responseXML;
 
-        var itemCount = xmlDoc.getElementsByTagName("item").length;
+	var featureTagName = "entry";
+
+        var itemCount = xmlDoc.getElementsByTagName(featureTagName ).length;
         var allLocs = new Array();
 
         for (i = 0; i <= itemCount - 1; i++) {
-            var childNodeCount = xmlDoc.getElementsByTagName("item")[i].childNodes.length;
+            var childNodeCount = xmlDoc.getElementsByTagName(featureTagName )[i].childNodes.length;
             var tagName = null;
             var geomType = null;
             var geom = null;
@@ -71,21 +74,21 @@ function GeoRSSModule(map) {
             var anchorLat = null;
             var anchorLon = null;
             for (j = 0; j <= childNodeCount - 1; j++) {
-                tagName = xmlDoc.getElementsByTagName("item")[i].childNodes[j].nodeName;
+                tagName = xmlDoc.getElementsByTagName(featureTagName )[i].childNodes[j].nodeName;
                 if (tagName in { 'georss:point': '', 'georss:line': '', 'georss:polygon': '' }) {
                     geomType = tagName;
-                    geom = xmlDoc.getElementsByTagName("item")[i].childNodes[j].childNodes[0].nodeValue;
+                    geom = xmlDoc.getElementsByTagName(featureTagName )[i].childNodes[j].childNodes[0].nodeValue;
                 }
                 else if (tagName == "title") {
                     try {
-                        myTitle = xmlDoc.getElementsByTagName("item")[i].childNodes[j].childNodes[0].nodeValue;
+                        myTitle = xmlDoc.getElementsByTagName(featureTagName )[i].childNodes[j].childNodes[0].nodeValue;
                     }
                     catch (err) {
                     }
                 }
                 else if (tagName == "description") {
                     try {
-                        myDesc = xmlDoc.getElementsByTagName("item")[i].childNodes[j].childNodes[0].nodeValue;
+                        myDesc = xmlDoc.getElementsByTagName(featureTagName )[i].childNodes[j].childNodes[0].nodeValue;
                     }
                     catch (err) {
                     }
@@ -132,11 +135,11 @@ function GeoRSSModule(map) {
             }
             shape.title = myTitle;
             shape.description = myDesc;
-            pushpinClick = Microsoft.Maps.Events.addHandler(shape, 'click', showInfoBox);
+//            pushpinClick = Microsoft.Maps.Events.addHandler(shape, 'click', showInfoBox);
             map.entities.push(shape);
         }
 
-        map.setView({ bounds: Microsoft.Maps.LocationRect.fromLocations(allLocs) });
+//        map.setView({ bounds: Microsoft.Maps.LocationRect.fromLocations(allLocs) });
     }
 }
 
