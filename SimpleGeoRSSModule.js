@@ -60,18 +60,19 @@ function GeoRSSModule(map) {
         var retText = xmlhttp.responseText;
 
 
-        var xmlDoc = null; 
+        var xmlContent = null; 
 
-if (window.DOMParser)
+if (!window.DOMParser)
+ // Internet Explorer
+   {
+xmlContent = new ActiveXObject("Microsoft.XMLDOM");
+xmlContent .async = false;
+xmlContent .loadXML(retText);
+   }
+else
    {
    parser = new DOMParser();
-   xmlDoc = parser.parseFromString(retText,"text/xml");
-   }
- else // Internet Explorer
-   {
-   xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
-   xmlDoc.async = false;
-   xmlDoc.loadXML(retText);
+xmlContent = parser.parseFromString(retText,"text/xml");
    }
 
 	var featureTagName = "entry";
