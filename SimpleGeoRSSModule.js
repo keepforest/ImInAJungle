@@ -28,8 +28,8 @@
 
 function GeoRSSModule(map) {
 
-    var myFillColor = Microsoft.Maps.Color.fromHex('99ff6600');
-    var myStrokeColor = Microsoft.Maps.Color.fromHex('eeff6600');
+    var myFillColor = new Microsoft.Maps.Color.fromHex('99ff6600');
+    var myStrokeColor = new Microsoft.Maps.Color.fromHex('eeff6600');
     var myStrokeThickness = 3;
 
     var myPolygonOptions = { fillColor: myFillColor,

@@ -12,17 +12,17 @@ var map = null;
 
 
 var polylineOptions = {
-        fillColor: Microsoft.Maps.Color.fromHex('99ff6600')
+        fillColor: new Microsoft.Maps.Color.fromHex('99ff6600')
 };
 
 var polygonOptions = {
-        fillColor : Microsoft.Maps.Color.fromHex('99ff6600'),
-        strokeColor : Microsoft.Maps.Color.fromHex('eeff6600')
+        fillColor : new Microsoft.Maps.Color.fromHex('99ff6600'),
+        strokeColor : new Microsoft.Maps.Color.fromHex('eeff6600')
 };
 
 
 var mapLayers = {
-	ThaiForestBoundary : {mapEntities : new Microsoft.Maps.EntityCollection(), sourceFile: 'thai_forest_boundary.txt'}
+	ThaiForestBoundary : {mapEntities : new Microsoft.Maps.EntityCollection(), sourceFile: '/thai_forest_boundary.txt'}
 };
 
 function GetMap() {
