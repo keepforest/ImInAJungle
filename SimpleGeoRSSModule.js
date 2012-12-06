@@ -66,12 +66,13 @@ if (!window.DOMParser)
  // Internet Explorer
    {
 xmlContent = new ActiveXObject("Microsoft.XMLDOM");
-xmlContent .async = false;
-xmlContent .loadXML(retText);
+xmlContent.async = false;
+xmlContent.loadXML(retText);
    }
 else
    {
    parser = new DOMParser();
+var len = retText.length;
 xmlContent = parser.parseFromString(retText,"text/xml");
    }
 
