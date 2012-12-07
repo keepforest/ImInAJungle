@@ -30,7 +30,7 @@ function GeoRSSModule(map) {
 
     var myFillColor = new Microsoft.Maps.Color(200,153,255,102); 
     var myStrokeColor = new Microsoft.Maps.Color(230,153,255,102);
-    var myStrokeThickness = 3;
+    var myStrokeThickness = 0;
 
     var myPolygonOptions = { fillColor: myFillColor,
         strokeColor: myStrokeColor,
