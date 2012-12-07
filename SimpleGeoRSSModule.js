@@ -28,8 +28,8 @@
 
 function GeoRSSModule(map) {
 
-    var myFillColor = new Microsoft.Maps.Color(200,153,255,102); // new Microsoft.Maps.Color.fromHex('99ff6600');
-    var myStrokeColor = new Microsoft.Maps.Color(200,238,255,102); // new Microsoft.Maps.Color.fromHex('eeff6600');
+    var myFillColor = new Microsoft.Maps.Color(200,153,255,102); 
+    var myStrokeColor = new Microsoft.Maps.Color(230,153,255,102);
     var myStrokeThickness = 3;
 
     var myPolygonOptions = { fillColor: myFillColor,
@@ -37,6 +37,7 @@ function GeoRSSModule(map) {
         strokeThickness: myStrokeThickness,
         visible: true
     };
+
     var myPolylineOptions = { strokeColor: myStrokeColor,
         strokeThickness: myStrokeThickness,
         visible: true
@@ -61,31 +62,10 @@ function GeoRSSModule(map) {
         xmlhttp.send();
         var xmlDoc = xmlhttp.responseXML;
 
-/*
-var len = retText.length;
-var sst = retText.substring(retText.length-10);
-
-
-        var xmlContent = null; 
-
-if (!window.DOMParser)
- // Internet Explorer
-   {
-xmlContent = new ActiveXObject("Microsoft.XMLDOM");
-xmlContent.async = false;
-xmlContent.loadXML(retText);
-   }
-else
-   {
-   oparser = new DOMParser();
-xmlContent = oparser.parseFromString(retText,"text/xml");
-   }
-*/
-
-	var featureTagName = "entry";
+        var featureTagName = "entry";
 
         var itemCount = xmlDoc.getElementsByTagName(featureTagName ).length;
-        var allLocs = new Array();
+        //var allLocs = new Array();
 
         for (i = 0; i <= itemCount - 1; i++) {
             var childNodeCount = xmlDoc.getElementsByTagName(featureTagName )[i].childNodes.length;
@@ -132,7 +112,7 @@ xmlContent = oparser.parseFromString(retText,"text/xml");
             for (k = 0; k <= coords.length - 1; k = k + 2) {
                 var thisLoc = new Microsoft.Maps.Location(coords[k], coords[k + 1]);
                 thisLocs.push(thisLoc);
-                allLocs.push(thisLoc);
+                //allLocs.push(thisLoc);
 
                 if (k == anchorCoord) {
                     anchorLat = coords[k];
@@ -161,32 +141,7 @@ xmlContent = oparser.parseFromString(retText,"text/xml");
 //            pushpinClick = Microsoft.Maps.Events.addHandler(shape, 'click', showInfoBox);
             map.entities.push(shape);
         }
-/*
-        map.setView({ bounds: Microsoft.Maps.LocationRect.fromLocations(allLocs) });
 
-            // Create the locations
-            var location1 = new Microsoft.Maps.Location(20,-20);
-            var location2 = new Microsoft.Maps.Location(20,20);
-            var location3 = new Microsoft.Maps.Location(-20,20);
-            var location4 = new Microsoft.Maps.Location(-20,-20);
-
-
-            // Create a polygon 
-            var vertices = new Array(location1, location2, location3, location4, location1);
-            var polygon = new Microsoft.Maps.Polygon(vertices,
-                              {fillColor: new Microsoft.Maps.Color(200,153,255,102), 
-                               strokeColor:  new Microsoft.Maps.Color(200,238,255,102),
-                               strokeThickness: 5});
-
-            
-            // Add the shape to the map
-            map.entities.push(polygon)
-
-            // Set the view
-            map.setView({bounds: Microsoft.Maps.LocationRect.fromLocations(vertices)});
-
-//return;
-*/
     }
 }
 
