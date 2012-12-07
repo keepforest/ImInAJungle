@@ -39,6 +39,29 @@ function GetMap() {
 	//set start map as Thailand
 	map.setView({zoom: 5, center: new Microsoft.Maps.Location(13.77351,100.56875) });
 
+            // Create the locations
+            var location1 = new Microsoft.Maps.Location(20,-20);
+            var location2 = new Microsoft.Maps.Location(20,20);
+            var location3 = new Microsoft.Maps.Location(-20,20);
+            var location4 = new Microsoft.Maps.Location(-20,-20);
+
+
+            // Create a polygon 
+            var vertices = new Array(location1, location2, location3, location4, location1);
+            var polygon = new Microsoft.Maps.Polygon(vertices,
+                              {fillColor: new Microsoft.Maps.Color(100,100,0,100), 
+                               strokeColor: new Microsoft.Maps.Color(200,0,100,100),
+                               strokeThickness: 5});
+
+            
+            // Add the shape to the map
+            map.entities.push(polygon)
+
+            // Set the view
+            map.setView({bounds: Microsoft.Maps.LocationRect.fromLocations(vertices)});
+
+return;
+
 	map.entities.clear(); 
 	LoadMapModules();
          map.entities.setOptions({visible:true});
