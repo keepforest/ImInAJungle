@@ -28,16 +28,18 @@
 
 function GeoRSSModule(map) {
 
-    var myFillColor = new Microsoft.Maps.Color.fromHex('99ff6600');
-    var myStrokeColor = new Microsoft.Maps.Color.fromHex('eeff6600');
+    var myFillColor = new Microsoft.Maps.Color(100,100,0,100); // new Microsoft.Maps.Color.fromHex('99ff6600');
+    var myStrokeColor = new Microsoft.Maps.Color(100,100,0,100); // new Microsoft.Maps.Color.fromHex('eeff6600');
     var myStrokeThickness = 3;
 
     var myPolygonOptions = { fillColor: myFillColor,
         strokeColor: myStrokeColor,
-        strokeThickness: myStrokeThickness
+        strokeThickness: myStrokeThickness,
+        visible: true
     };
     var myPolylineOptions = { strokeColor: myStrokeColor,
         strokeThickness: myStrokeThickness
+        visible: true
     };
 
     Microsoft.Maps.Pushpin.prototype.title = null;
@@ -160,7 +162,7 @@ xmlContent = oparser.parseFromString(retText,"text/xml");
             map.entities.push(shape);
         }
 
-//        map.setView({ bounds: Microsoft.Maps.LocationRect.fromLocations(allLocs) });
+        map.setView({ bounds: Microsoft.Maps.LocationRect.fromLocations(allLocs) });
     }
 }
 
