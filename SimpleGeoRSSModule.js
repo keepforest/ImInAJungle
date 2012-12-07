@@ -174,8 +174,8 @@ xmlContent = oparser.parseFromString(retText,"text/xml");
             // Create a polygon 
             var vertices = new Array(location1, location2, location3, location4, location1);
             var polygon = new Microsoft.Maps.Polygon(vertices,
-                              {fillColor: new Microsoft.Maps.Color(100,100,0,100), 
-                               strokeColor: new Microsoft.Maps.Color(200,0,100,100),
+                              {fillColor: new Microsoft.Maps.Color.fromHex('99ff6600'), //new Microsoft.Maps.Color(100,100,0,100), 
+                               strokeColor:  new Microsoft.Maps.Color.fromHex('eeff6600'), // new Microsoft.Maps.Color(200,0,100,100),
                                strokeThickness: 5});
 
             
