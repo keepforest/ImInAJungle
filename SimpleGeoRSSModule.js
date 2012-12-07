@@ -29,7 +29,7 @@
 function GeoRSSModule(map) {
 
     var myFillColor = new Microsoft.Maps.Color(100,100,0,100); // new Microsoft.Maps.Color.fromHex('99ff6600');
-    var myStrokeColor = new Microsoft.Maps.Color(100,100,0,100); // new Microsoft.Maps.Color.fromHex('eeff6600');
+    var myStrokeColor = new Microsoft.Maps.Color(200,0,100,100); // new Microsoft.Maps.Color.fromHex('eeff6600');
     var myStrokeThickness = 3;
 
     var myPolygonOptions = { fillColor: myFillColor,
@@ -38,7 +38,7 @@ function GeoRSSModule(map) {
         visible: true
     };
     var myPolylineOptions = { strokeColor: myStrokeColor,
-        strokeThickness: myStrokeThickness
+        strokeThickness: myStrokeThickness,
         visible: true
     };
 
@@ -163,6 +163,30 @@ xmlContent = oparser.parseFromString(retText,"text/xml");
         }
 
         map.setView({ bounds: Microsoft.Maps.LocationRect.fromLocations(allLocs) });
+
+            // Create the locations
+            var location1 = new Microsoft.Maps.Location(20,-20);
+            var location2 = new Microsoft.Maps.Location(20,20);
+            var location3 = new Microsoft.Maps.Location(-20,20);
+            var location4 = new Microsoft.Maps.Location(-20,-20);
+
+
+            // Create a polygon 
+            var vertices = new Array(location1, location2, location3, location4, location1);
+            var polygon = new Microsoft.Maps.Polygon(vertices,
+                              {fillColor: new Microsoft.Maps.Color(100,100,0,100), 
+                               strokeColor: new Microsoft.Maps.Color(200,0,100,100),
+                               strokeThickness: 5});
+
+            
+            // Add the shape to the map
+            map.entities.push(polygon)
+
+            // Set the view
+            map.setView({bounds: Microsoft.Maps.LocationRect.fromLocations(vertices)});
+
+//return;
+
     }
 }
 
