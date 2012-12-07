@@ -28,8 +28,8 @@
 
 function GeoRSSModule(map) {
 
-    var myFillColor = new Microsoft.Maps.Color(100,100,0,100); // new Microsoft.Maps.Color.fromHex('99ff6600');
-    var myStrokeColor = new Microsoft.Maps.Color(200,0,100,100); // new Microsoft.Maps.Color.fromHex('eeff6600');
+    var myFillColor = new Microsoft.Maps.Color(200,153,255,102); // new Microsoft.Maps.Color.fromHex('99ff6600');
+    var myStrokeColor = new Microsoft.Maps.Color(200,238,255,102); // new Microsoft.Maps.Color.fromHex('eeff6600');
     var myStrokeThickness = 3;
 
     var myPolygonOptions = { fillColor: myFillColor,
@@ -161,7 +161,7 @@ xmlContent = oparser.parseFromString(retText,"text/xml");
 //            pushpinClick = Microsoft.Maps.Events.addHandler(shape, 'click', showInfoBox);
             map.entities.push(shape);
         }
-
+/*
         map.setView({ bounds: Microsoft.Maps.LocationRect.fromLocations(allLocs) });
 
             // Create the locations
@@ -186,7 +186,7 @@ xmlContent = oparser.parseFromString(retText,"text/xml");
             map.setView({bounds: Microsoft.Maps.LocationRect.fromLocations(vertices)});
 
 //return;
-
+*/
     }
 }
 
